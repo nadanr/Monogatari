@@ -60,9 +60,21 @@ monogatari.characters ({
 		'Name': '{{player.name}}',
 		'Color': '#ff3951'
 	},
-	'e':{
-		'Name': 'Evelyn',
+	'n': {
+		'Name': 'Navi',
 		'Color': '#00bfff',
+		'Directory': 'Girl_02',
+		'Images':{
+			'Normal': 'happy.png',
+			'Mad': 'upset.png',
+			'Doubt': 'surprised.png',
+			'Disapointed':'sad.png',
+			'Happy': 'happy.png'
+		}
+	},
+	'e': {
+		'Name': 'Evelyn',
+		'Color': '#ff3952',
 		'Directory': 'Girl_01',
 		'Images':{
 			'Normal': 'happy.png',
@@ -185,8 +197,10 @@ monogatari.script ({
 			'e Oh, is there a problem?',
 			'p What was that story about? Aren’t you going to finish it?',
 
-			'show e Happy with fadeIn',
-			'e Ah! I see, got you intrigued haven’t I? Well {{player.name}}, as a matter of fact not even I know what I was talking about, we are on a novel someone wrote remember?',
+			'hide e with fadeOut',
+
+			'show n Happy with fadeIn',
+			'n Ah! I see, got you intrigued haven’t I? Well {{player.name}}, as a matter of fact not even I know what I was talking about, we are on a novel someone wrote remember?',
 
 			'p Oh, right... no, wait, WHAT?!',
 
@@ -198,25 +212,8 @@ monogatari.script ({
 
 			'e I don’t even get to have a name I mean, what’s up with that? Come on now, guess you get to choose this.',
 
-		/*	{'Input': {
-				'Text': 'What should be my name?',
-				'Validation': function (input) {
-					return input.trim ().length > 0;
-				},
-				'Save': function (input) {
-					
-				},
-				'Warning': 'Choose a nice name for me please.'
-			}},*/
 
 			'show e Normal with fadeIn',
-			{'Conditional': {
-				'Condition': function () {
-					return this.storage ('evelyn_name') == 'Evelyn';
-				},
-				'True': 'e Evelyn... That’s a lovely name! I love it!',
-				'False': 'e {{evelyn_name}}... Yeah, sounds good!'
-			}},
 
 			'e All right, since you seem a little bit confused let’s see what living on a visual novel really means shall we?',
 
